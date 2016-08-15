@@ -50,7 +50,7 @@
     require('weex-components');
     var modal = require('@weex-module/modal');
     var navigator = require('@weex-module/navigator');
-    var apis = require('../common/api');
+    var apis = require('../common/api');var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             question_content: '',
@@ -68,7 +68,7 @@
             //获取参数
 //            modal.toast({'message': 'hide me!' + contentId, 'duration': 1});
             //请求数据
-            apis.getQuestionDetail(contentId, function (ret) {
+            apis.getQuestionDetail(stream,contentId, function (ret) {
                 self.question_content = ret.data.question_content;
                 self.answer_title = ret.data.answer_title;
                 self.answer_content = ret.data.answer_content;
@@ -79,7 +79,7 @@
                 var params = {
                     'animated': 'true'
                 };
-                self.$call('navigator_dodo', 'pop', params, function () {
+                self.$call('navigator', 'pop', params, function () {
                 });
             });
         },

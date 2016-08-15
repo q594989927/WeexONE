@@ -28,7 +28,7 @@
     require('weex-components');
     var modal = require('@weex-module/modal');
     var navigator = require('@weex-module/navigator');
-    var apis = require('../common/api');
+    var apis = require('../common/api');var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             index: 0,
@@ -39,7 +39,7 @@
         created: function () {
             var self = this;
             //请求数据
-            apis.getMovieList(self.index, function (ret) {
+            apis.getMovieList(stream,self.index, function (ret) {
                 self.movieItems = ret.data;
             });
 
@@ -80,7 +80,7 @@
                     'url': this.baseURL + 'WeexOne/modules/movie-detail.js?id=' + itemid,
                     'animated': 'true'
                 };
-                self.$call('navigator_dodo', 'push', params, function () {
+                self.$call('navigator', 'push', params, function () {
                 });
             }
         }

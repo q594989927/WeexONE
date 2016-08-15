@@ -2,12 +2,12 @@
     <div>
         <scroller class="content">
             <slider class="slider" append="tree" auto-play="false" onchange="sliderChange" id="imageSlider"
-                    style="height:{{deviceHeight}}px">
+                    style="height:{{deviceHeight}}">
                 <div repeat="{{imageList}}" class="slider">
-                    <image src="{{hp_img_url}}" style="height:{{deviceHeight}}px"
+                    <image src="{{($index-current_index==0)?hp_img_url:''}}" style="height:{{deviceHeight}}"
                            class="home-img" resize="cover" onclick="onMainImageClick"></image>
-                    <div class="sentence-bg" style="height:{{deviceHeight}}px"></div>
-                    <div style="align-items:flex-end;flex-direction: row;height:{{deviceHeight}}px">
+                    <div class="sentence-bg" style="height:{{deviceHeight}}"></div>
+                    <div style="align-items:flex-end;flex-direction: row;height:{{deviceHeight}}">
                         <div id="img_info{{$index}}">
                             <text class="day">{{hp_day}}</text>
                             <text class="month"> {{hp_title}} | {{hp_month}} {{hp_year}}</text>
@@ -115,7 +115,7 @@
     var modal = require('@weex-module/modal');
     var animation = require('@weex-module/animation');
     var stream = require('@weex-module/stream');
-    var apis = require('../common/api');
+    var apis = require('../common/api');var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             current_index: 0,
@@ -153,7 +153,7 @@
             getHomeData: function (dateStr) {
                 var self = this;
                 self.imageList = [];
-                apis.getHome(dateStr, function (retdata) {
+                apis.getHome(stream,dateStr, function (retdata) {
                     self.imageList = retdata.data;
                     self.nav_title = dateStr;
                     var monthdata = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];

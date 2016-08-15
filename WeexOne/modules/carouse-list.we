@@ -57,7 +57,7 @@
     require('weex-components');
     var modal = require('@weex-module/modal');
     var apis = require('../common/api');
-
+	var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             title: '', readingList: [], dir: 'examples', baseURL: ''
@@ -73,7 +73,7 @@
             if (self.title.lastIndexOf('?') != -1) {
                 self.title = self.title.substr(0, self.title.lastIndexOf('?'));
             }
-            apis.getCarouseList(contentId, function (ret) {
+            apis.getCarouseList(stream,contentId, function (ret) {
                 for (var i = 0; i < ret.data.length; i++) {
                     var item = ret.data[i];
                     item.showType1 = item.type == 1;
@@ -118,7 +118,7 @@
                 var params = {
                     'animated': 'true'
                 };
-                self.$call('navigator_dodo', 'pop', params, function () {
+                self.$call('navigator', 'pop', params, function () {
                 });
             }, getParameterByName: function (name, url) {
                 name = name.replace(/[\[\]]/g, "\\$&");
@@ -149,7 +149,7 @@
                     'url': this.baseURL + 'WeexOne/modules/essay-detail.js?id=' + id,
                     'animated': 'true'
                 };
-                vm.$call('navigator_dodo', 'push', params, function () {
+                vm.$call('navigator', 'push', params, function () {
                 });
             },
             openSerialDetail: function (id) {
@@ -158,7 +158,7 @@
                     'url': this.baseURL + 'WeexOne/modules/serial-detail.js?id=' + id,
                     'animated': 'true'
                 };
-                vm.$call('navigator_dodo', 'push', params, function () {
+                vm.$call('navigator', 'push', params, function () {
                 });
             },
             openQuestionDetail: function (id) {
@@ -167,7 +167,7 @@
                     'url': this.baseURL + 'WeexOne/modules/question-detail.js?id=' + id,
                     'animated': 'true'
                 };
-                vm.$call('navigator_dodo', 'push', params, function () {
+                vm.$call('navigator', 'push', params, function () {
                 });
             }
         }

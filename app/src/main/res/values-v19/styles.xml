@@ -1,0 +1,29 @@
+<resources>>
+
+    <!--<style name="Theme.Base" parent="android:Theme.Light.NoTitleBar">-->
+    <!--<item name="android:windowTranslucentStatus">true</item>-->
+    <!--</style>-->
+
+
+    <!--<style name="Theme.Base.ImmersineStatusBar" parent="Theme.Base">-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:textColorPrimary">@color/black_main</item>-->
+        <!--<item name="colorPrimary">@color/lujing_main</item>-->
+        <!--<item name="colorPrimaryDark">@color/lujing_main</item>-->
+        <!--<item name="colorAccent">@color/white</item>-->
+    <!--</style>-->
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+    </style>
+
+    <!--<style name="AppTheme" parent="Theme.Base.TF56">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+</resources>

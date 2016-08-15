@@ -53,4 +53,9 @@ function hello(){
     console.log("hahhahahah")
 }
 
+function math_abs(a,b){
+	return math.abs(a,b);
+}
+
+exports.math_abs=math_abs
 exports.hello= hello

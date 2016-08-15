@@ -70,7 +70,7 @@
     require('weex-components');
     var modal = require('@weex-module/modal');
     var navigator = require('@weex-module/navigator');
-    var apis = require('../common/api');
+    var apis = require('../common/api');var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             content: '',
@@ -89,7 +89,7 @@
             //获取参数
 //            modal.toast({'message': 'hide me!' + contentId, 'duration': 1});
             //请求数据
-            apis.getEssay(contentId, function (ret) {
+            apis.getEssay(stream,contentId, function (ret) {
 //                self.content = ret.data.hp_content.replace(/\<br\>/g, '');
                 self.content = ret.data.hp_content;
                 self.authorImage = ret.data.author[0].web_url;
@@ -102,7 +102,7 @@
                 var params = {
                     'animated': 'true'
                 };
-                self.$call('navigator_dodo', 'pop', params, function () {
+                self.$call('navigator', 'pop', params, function () {
                 });
             });
         },

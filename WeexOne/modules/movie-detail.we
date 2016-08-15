@@ -51,7 +51,7 @@
     require('weex-components');
     var modal = require('@weex-module/modal');
     var navigator = require('@weex-module/navigator');
-    var apis = require('../common/api');
+    var apis = require('../common/api');var stream = require('@weex-module/stream');
     module.exports = {
         data: {
             playStatus: 'play',
@@ -72,7 +72,7 @@
             }
 
             //请求数据
-            apis.getMovieDetail(contentId, function (ret) {
+            apis.getMovieDetail(stream,contentId, function (ret) {
                 self.video = ret.data.video;
                 self.title = ret.data.title;
                 self.officialstory = ret.data.officialstory;
@@ -84,7 +84,7 @@
                 var params = {
                     'animated': 'true'
                 };
-                self.$call('navigator_dodo', 'pop', params, function () {
+                self.$call('navigator', 'pop', params, function () {
                 });
             });
         },
